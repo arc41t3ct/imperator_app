@@ -10,7 +10,7 @@ To develop quickly local there is another public repo that is useful:
 
 [Imperator Dev Infra](https://github.com/arc41t3ct/imperator-dev-infra)
 
-## .env
+## Dotenv .env
 
 The Imperator Framework requires all these envrionment variables below. Make sure to add this .evn file 
 to your root before you build it. It is in the .gitignore on purpose so you do not ship your credentials. 
