@@ -87,7 +87,7 @@ CACHE_TYPE=redis
 
 # ENCRYPTION Configuration
 # generated with ./imperitor make key
-ENCRYPTION_KEY=vMPC4qg8rvU3lG6PGEqh_TFQBETZ4l53
+ENCRYPTION_KEY=cukSX7a8aa97SAX6_as766-asc1229SS
 
 # SMTP Configuration
 SMTP_HOST=localhost
@@ -99,9 +99,9 @@ SMTP_ENCRYPTION=none
 
 # MAIL Configuration
 # these should be matching what is setup in mailgun
-MAIL_DOMAIN=mg.gutschein.promo
-MAIL_FROM_NAME="Gutschein.Promo Team"
-MAIL_FROM_ADDRESS="customer.service@gutschein.promo"
+MAIL_DOMAIN=mg.awesoome-site.store
+MAIL_FROM_NAME="Awesome.Site Team"
+MAIL_FROM_ADDRESS="customer.service@awsome-site.store"
 
 # MAILER Configuration
 # setting MAILER_API=smtp allows you to use internal SMTP setting
