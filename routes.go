@@ -72,14 +72,12 @@ func (a *application) routes() *chi.Mux {
 			Active:    1,
 			Password:  "password",
 		}
-
-		id, err := a.Models.Users.Insert(u)
-		if err != nil {
+		if _, err := a.Models.Users.Insert(u); err != nil {
 			a.App.ErrorLog.Println(err)
 			return
 		}
-
-		fmt.Fprintf(w, "%d: %s", id, u.FirstName)
+		a.App.Session.Put(r.Context(), "success", fmt.Sprintf("user was created: %s", u.Email))
+		http.Redirect(w, r, "/users/login", http.StatusSeeOther)
 	})
 	a.App.Routes.Get("/get-all-users", func(w http.ResponseWriter, r *http.Request) {
 		users, err := a.Models.Users.GetAll()
@@ -102,7 +100,8 @@ func (a *application) routes() *chi.Mux {
 			a.App.ErrorLog.Println(err)
 			return
 		}
-		fmt.Fprintf(w, "%s %s %s", u.FirstName, u.LastName, u.Email)
+		a.App.Session.Put(r.Context(), "success", fmt.Sprintf("got user %s %s %s", u.FirstName, u.LastName, u.Email))
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 	})
 	a.App.Routes.Get("/update-user/{id}", func(w http.ResponseWriter, r *http.Request) {
 		id, err := strconv.Atoi(chi.URLParam(r, "id"))
